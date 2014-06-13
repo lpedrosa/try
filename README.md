@@ -4,8 +4,8 @@ This is a Java 8 Try<T> implementation, based on the <a href="http://www.scala-l
 
 This means, unlike scala.util.Try, there are no Success or Failure classes that extend this class.
 
-Try is a monad that represents the value of computations that might fail. In other words, it might contain the value of the computation, if this is successful, or it might contain the exception thrown by the computation.
+Try is class that represents the value of a computation that might fail. In other words, it might contain the value of the computation, if this is successful, or it might contain the exception thrown by the computation.
 
-The original Try class was created by twitter, in result of a desire to pass a computation result between thread, even if this was a failure. With the addition of java.util.CompletableFuture in Java SE 8, this class might not be as useful as it seems.
+The original Try class was created by twitter, in effort to pass a computation result between threads, even if this was a failure. 
 
-Still, much like Optional, the ability to express this behaviour using Java's type system is always helpful.
+With the addition of java.util.CompletableFuture in Java SE 8, this class might not be as useful as it seems. Still, much like Optional, the ability to express this behaviour using Java's type system is always helpful.
