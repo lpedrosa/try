@@ -84,6 +84,19 @@ public class TryMapperTests {
         assertEquals(4, computationResult.intValue());
     }
 
+    @Test
+    public void recoverTests() throws Throwable {
+        Try<Integer> integer = Try.of(() -> Integer.parseInt("a"))
+                                  .recover((t) -> {
+                                      if (NumberFormatException.class.isAssignableFrom(t.getClass())) {
+                                          return 0;
+                                      }
+                                      return -1;
+                                  });
+
+        assertEquals(0, integer.get().intValue());
+    }
+
     private String somethingThatMightFail() throws Exception {
         throw new Exception("I failed");
     }
